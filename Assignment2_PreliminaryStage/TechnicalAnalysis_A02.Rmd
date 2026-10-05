@@ -1,0 +1,45 @@
+---
+title: "Technical Analysis - Preliminary Stage"
+author: "Clinton Chemuta"
+output: html_document
+---
+
+# Purpose
+
+This R Markdown file documents the preliminary technical-analysis workflow for BDA400 Assignment 2.
+
+# Packages
+
+```{r setup, eval=FALSE}
+library(quantmod)
+library(TTR)
+```
+
+# Load Utility Functions
+
+```{r utilities, eval=FALSE}
+source("01_stock_utilities.R")
+```
+
+# Import Portfolio Data
+
+```{r import, eval=FALSE}
+stocks <- load_stock_data("portfolio.txt")
+```
+
+# Calculate Statistics
+
+```{r statistics, eval=FALSE}
+statistics <- calculate_portfolio_statistics(stocks, ma_period = 20)
+print(round(statistics, 2))
+```
+
+# Display Data and Visualizations
+
+```{r display, eval=FALSE}
+source("02_display_visualizations.R")
+```
+
+# Expected Outputs
+
+The scripts display the imported OHLCV stock data, a summary table of adjusted-close statistics, candlestick charts with volume and a 20-day simple moving average, and adjusted-close line charts with the moving average.
